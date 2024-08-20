@@ -1,5 +1,7 @@
 #include "pch.h"
 
+// Special thanks to Kell (kellsnc) for an assist on setting up the two DrawSpritePoint functions/using late_SetFunc.
+
 #define SetFilter(filter) (DWORD*)&filter
 
 enum tssfilter
