@@ -29,7 +29,6 @@ void RingDone(taskwk* twp)
 			{
 				njPushMatrix(0);
 				njTranslate(0, twp->pos.x - i + i, twp->pos.y - (n[i] * 0.05f) * 3.0f, twp->pos.z - i + i);
-				late_DrawSprite3D(&RingInfo.eff.sprite, n[i], NJD_SPRITE_ALPHA | NJD_SPRITE_SCALE, LATE_EASY);
 				late_SetFunc(DrawEffectSpritePoint, (void*)(int)n[i], -100000.0f, (NJD_SPRITE_ALPHA | NJD_SPRITE_SCALE));
 				njPopMatrix(1);
 			}

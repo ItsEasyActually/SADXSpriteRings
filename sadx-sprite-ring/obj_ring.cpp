@@ -29,9 +29,7 @@ void SpriteRingDisp(task* tp)
 		njSetTexture(&RingInfo.obj.texlist);
 		njPushMatrix(0);
 		njTranslate(0, twp->pos.x, twp->pos.y, twp->pos.z);
-		late_z_ofs___ = -100000.0f;
 		late_SetFunc(DrawSpritePoint, (void*)ring, -100000.0f, LATE_EASY);
-		late_z_ofs___ = 0.0f;
 		njPopMatrix(1u);
 	}
 }
