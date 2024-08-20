@@ -47,6 +47,8 @@ This mod removes the use of OBJ_REGULAR as the PVM used by the rings, instead op
 
 Ideally if you're developing a sub mod for this, you'll want to include this mod as a dependency. Please follow [this guide](https://github.com/X-Hax/SADXModdingGuide/wiki/Mod-Dependencies) for information on creating Mod Dependencies. This will prevent issues with users attempting to use your mod while not having this mod to make sure it runs.
 
+Just like this mod, you can also include multiple configuration options. Please refer to the [Codeless Config](https://github.com/X-Hax/SADXModdingGuide/wiki/Setting-up-a-Mod-Config-File#codeless-configuration) setup for the Mod Manager. You can use this and the same basic folder structure used in the base mod to create configurable sprites for your mod.
+
 ### Issues
 Please report all issues found to the [Issues](https://github.com/ItsEasyActually/SADXSpriteRings/issues) on this repository. Please know that there are known issues with alpha sorting. I have mitigated some of the issues, but others persist at this time. If you find spots to report an alpha issue, please check [this issue](https://github.com/ItsEasyActually/SADXSpriteRings/issues/1) and add a comment if you find any unlisted areas with alpha sorting issues.
 
