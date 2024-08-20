@@ -43,7 +43,7 @@ A  detailed break down of each group and its variables are as follows:
 | SpriteScale 		| This sets the size the sprites will be rendered at. The scale is relatable to the texture size. 0.3 works well for 16x16 sprites, 0.15 works well for 32x32, etc. | Both 	|
 
 ### Additional Info
-This mod removes the use of OBJ_REGULAR as the PVM used by the rings, instead opting for two unique PVMs, OBJ_RING and EFF_RING. These can be provided in any format (pvm, texpack, pvmx), but this mod has only been tested using texpacks and pvmx. You may experience more alpha related problems using pvm due to it being further compressed.
+This mod removes the use of OBJ_REGULAR as the PVM used by the rings, instead opting for two unique PVMs, OBJ_RING and EFF_RING. These can be provided in any format (pvm, texpack, pvmx), but this mod has only been tested using texpacks and pvmx. You may experience more alpha related problems using pvm due to it being a lossy format.
 
 Ideally if you're developing a sub mod for this, you'll want to include this mod as a dependency. Please follow [this guide](https://github.com/X-Hax/SADXModdingGuide/wiki/Mod-Dependencies) for information on creating Mod Dependencies. This will prevent issues with users attempting to use your mod while not having this mod to make sure it runs.
 
