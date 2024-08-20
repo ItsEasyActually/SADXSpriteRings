@@ -39,7 +39,7 @@ A  detailed break down of each group and its variables are as follows:
 |--|--|--|
 | Size 						| This is the texture size in pixels, ie 16x16, 32x32. These are expected to be square textures, so you only need to include one value indicating the size. | Both 	|
 | TextureCount 		| This is the total number of textures being used in the sprite. Please make sure this is exactly the same are your textures otherwise your animation will display incorrectly, or potentially crash the game. | Both 	|
-| FrameIncrement 	| This sets how quickly the sprites animate. The full process is `(FrameCounterUnpaused / FrameIncrement) % TextureCount` which allows it to only increment when the game is not paused. | Object |
+| FrameIncrement 	| This sets how quickly the sprites animate. The full process is `(FrameCounterUnpaused / FrameIncrement) % TextureCount` which allows it to only increment when the game is not paused and stay within the boundaries of the total textures. | Object |
 | SpriteScale 		| This sets the size the sprites will be rendered at. The scale is relatable to the texture size. 0.3 works well for 16x16 sprites, 0.15 works well for 32x32, etc. | Both 	|
 
 ### Additional Info
