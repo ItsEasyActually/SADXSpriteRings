@@ -56,7 +56,7 @@ A  detailed break down of each group and its variables are as follows:
 | ColorB			| This float value sets the blue color amount for the sprite. 	| 1.0 | Both |
 | ShadowScale		| This float value sets the scale of ring's shadow. 			| 0.5 | Object |
 
-* Variables with Both work for both elements, any that specify being on one or the other only have an applicable effect to that element.
+**Note: Variables with Both work for both elements, any that specify being on one or the other only have an applicable effect to that element.**
 
 ### Additional Info
 This mod removes the use of OBJ_REGULAR as the PVM used by the rings, instead opting for two unique PVMs, OBJ_RING and EFF_RING. These can be provided in any format (pvm, texpack, pvmx), but this mod has only been tested using texpacks and pvmx. You may experience more alpha related problems using pvm due to it being a lossy format.
