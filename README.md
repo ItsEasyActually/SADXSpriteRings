@@ -45,7 +45,7 @@ A  detailed break down of each group and its variables are as follows:
 | [Effect] | This header is information dedicated to the sprites used for the collection effect. |
 ---
 | Variable | Description | Default Value | Object / Effect |
-|--|--|--|
+|--|--|--|--|
 | Size 				| This is the texture size in pixels, ie 16x16, 32x32. These are expected to be square textures, so you only need to include one value indicating the size.																						| 16	| Both 		|
 | TextureCount 		| This is the total number of textures being used in the sprite. Please make sure this is exactly the same are your textures otherwise your animation will display incorrectly, or potentially crash the game.									| 4		| Both 		|
 | FrameIncrement 	| This sets how quickly the sprites animate. The full process is `(FrameCounterUnpaused / FrameIncrement) % TextureCount` which allows it to only increment when the game is not paused and stay within the boundaries of the total textures.	| 6		| Object	|
