@@ -59,7 +59,11 @@ void DrawSpritePoint(void* data)
 	StartSpriteRender();
 
 	int frame = *(int*)&data;
-	njDrawSprite3D(&RingInfo.obj.sprite, frame, NJD_SPRITE_ALPHA | NJD_SPRITE_SCALE);
+	njColorBlendingMode(NJD_SOURCE_COLOR, NJD_COLOR_BLENDING_SRCALPHA);
+	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+	SetMaterial(RingInfo.obj.color.a, RingInfo.obj.color.r, RingInfo.obj.color.g, RingInfo.obj.color.b);
+	njDrawSprite3D(&RingInfo.obj.sprite, frame, NJD_SPRITE_ALPHA | NJD_SPRITE_SCALE | NJD_SPRITE_COLOR);
+	ResetMaterial();
 
 	EndSpriteRender();
 }
@@ -69,7 +73,11 @@ void DrawEffectSpritePoint(void* data)
 	StartSpriteRender();
 
 	int frame = *(int*)&data;
-	njDrawSprite3D(&RingInfo.eff.sprite, frame, NJD_SPRITE_ALPHA | NJD_SPRITE_SCALE);
+	njColorBlendingMode(NJD_SOURCE_COLOR, NJD_COLOR_BLENDING_SRCALPHA);
+	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+	SetMaterial(RingInfo.eff.color.a, RingInfo.eff.color.r, RingInfo.eff.color.g, RingInfo.eff.color.b);
+	njDrawSprite3D(&RingInfo.eff.sprite, frame, NJD_SPRITE_ALPHA | NJD_SPRITE_SCALE | NJD_SPRITE_COLOR);
+	ResetMaterial();
 
 	EndSpriteRender();
 }

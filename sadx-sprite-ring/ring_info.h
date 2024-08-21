@@ -6,6 +6,8 @@ public:
 	int tex_total;
 	int frame;
 	float scale;
+	NJS_ARGB color;
+	float shadow_scale;
 
 	std::vector<NJS_TEXNAME> texnames;
 	std::vector<NJS_TEXANIM> animation;
@@ -21,6 +23,10 @@ public:
 		tex_total = file->getInt(header, "TextureCount", 4);
 		frame = file->getInt(header, "FrameIncrement", 6);
 		scale = file->getFloat(header, "SpriteScale", 0.3f);
+
+		color = { file->getFloat(header, "ColorA", 1.0f), file->getFloat(header, "ColorR", 1.0f), file->getFloat(header, "ColorG", 1.0f), file->getFloat(header, "ColorB", 1.0f) };
+
+		shadow_scale = file->getFloat(header, "ShadowScale", 0.5f);
 
 		for (int i = 0; i < tex_total; i++)
 		{

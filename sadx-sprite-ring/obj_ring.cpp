@@ -18,7 +18,7 @@ void DrawSpriteRingShadow(taskwk* twp, float height)
 	if (!rendershadow)
 		return;
 
-	float xscale = 0.5f / (fabs(twp->pos.y - height) * 0.05f + 1.0f);
+	float xscale = RingInfo.obj.shadow_scale / (fabs(twp->pos.y - height) * 0.05f + 1.0f);
 	SetRegularTexture();
 	njPushMatrix(0);
 	njTranslate(0, twp->pos.x, (height + 0.2f), twp->pos.z);
@@ -36,13 +36,11 @@ void SpriteRingDisp(task* tp)
 	if (!loop_count && IsVisible(&twp->pos, 40.0))
 	{
 		DrawSpriteRingShadow(twp, (twp->scl.y + 0.4f));
-		int ring = ((FrameCounterUnpaused / RingInfo.obj.frame) % RingInfo.obj.tex_total);
-		njColorBlendingMode(NJD_SOURCE_COLOR, NJD_COLOR_BLENDING_SRCALPHA);
-		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+		int frame = ((FrameCounterUnpaused / RingInfo.obj.frame) % RingInfo.obj.tex_total);
 		njSetTexture(&RingInfo.obj.texlist);
 		njPushMatrix(0);
 		njTranslate(0, twp->pos.x, twp->pos.y, twp->pos.z);
-		late_SetFunc(DrawSpritePoint, (void*)ring, -100000.0f, LATE_EASY);
+		late_SetFunc(DrawSpritePoint, (void*)frame, -100000.0f, LATE_EASY);
 		njPopMatrix(1u);
 	}
 }
@@ -54,13 +52,11 @@ void SpriteDroppedRingDisp(task* tp, float height)
 	if (!loop_count && IsVisible(&twp->pos, 40.0))
 	{
 		DrawSpriteRingShadow(twp, height);
-		int ring = ((FrameCounterUnpaused / RingInfo.obj.frame) % RingInfo.obj.tex_total);
-		njColorBlendingMode(NJD_SOURCE_COLOR, NJD_COLOR_BLENDING_SRCALPHA);
-		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+		int frame = ((FrameCounterUnpaused / RingInfo.obj.frame) % RingInfo.obj.tex_total);
 		njSetTexture(&RingInfo.obj.texlist);
 		njPushMatrix(0);
 		njTranslate(0, twp->pos.x, twp->pos.y + 3.44f, twp->pos.z);
-		late_SetFunc(DrawSpritePoint, (void*)ring, -100000.0f, LATE_EASY);
+		late_SetFunc(DrawSpritePoint, (void*)frame, -100000.0f, LATE_EASY);
 		njPopMatrix(1u);
 	}
 }
