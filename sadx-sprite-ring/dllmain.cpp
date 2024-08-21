@@ -19,6 +19,7 @@ extern "C"
 		modpath.append("\\config.ini");
 		std::shared_ptr<IniFile> config = std::make_shared<IniFile>(modpath.c_str());
 		SetUserFilterMethod(static_cast<TexFilter>(config->getInt("Sprite Options", "filter", 0)));
+		rendershadow = config->getBool("Sprite Options", "rendershadow", true);
 
 		RingInfo.LoadInfoFile(info);
 

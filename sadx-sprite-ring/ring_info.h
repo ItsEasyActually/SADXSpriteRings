@@ -6,7 +6,6 @@ public:
 	int tex_total;
 	int frame;
 	float scale;
-	NJS_ARGB color;
 
 	std::vector<NJS_TEXNAME> texnames;
 	std::vector<NJS_TEXANIM> animation;
