@@ -3,9 +3,11 @@
 
 This mod replaces the rings in SADX with animated sprites. They're customizable by sub mods. Please check [here](#sub-mod-development) for information on creating sub mods.
 
+You can download the latest version [here](https://github.com/ItsEasyActually/SADXSpriteRings/releases)
+
 It comes with several custom options built into the mod that can be used via the mod's configuration options. Users can also select the rendering method for the sprites, options exist for Point Filtering (default) and Linear Filtering. Users can also toggle if the ring's render with a shadow or not.
 
-If you're playing this mod with any sub mods installed, please be aware the sub mods will take priority over all configurations.
+If you're playing this mod with any sub mods installed, please be aware the **sub mods (and any of their config options) will take priority over all configurations.**
 
 ## Sub Mod Development
 Below will go over creating a sub mod that makes use of this mod's code to render a sprite. It's very simple, only needing to modify an ini file and adding your own textures. Please check [Licensing](#licensing) for information on how crediting works.
