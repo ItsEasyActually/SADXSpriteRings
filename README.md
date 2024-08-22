@@ -60,7 +60,7 @@ A  detailed break down of each group and its variables are as follows:
 | ShadowScale		| This float value sets the scale of ring's shadow. 			| 0.5 | Object |
 
 **Note 1: Variables with Both work for both elements, any that specify being on one or the other only have an applicable effect to that element.**\
-**Note 2: The Texture Count, as stated, must match to render correctly. If you have less textures than the count, it will crash. If you have more than the count, it will not display properly.**\
+**Note 2: The Texture Count, as stated, must match to render correctly. If you have less textures than the count, it will crash. If you have more than the count, it will not display properly.**
 
 ### Additional Configurations
 Just like this mod does, you can also include multiple configuration options in your sub mod. Please refer to the [Codeless Config](https://github.com/X-Hax/SADXModdingGuide/wiki/Setting-up-a-Mod-Config-File#codeless-configuration) setup for the Mod Manager.
