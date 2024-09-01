@@ -6,9 +6,7 @@ void RingDone(taskwk* twp)
 {
 	if (!ChkPause())
 	{
-		twp->counter.f += 0.8f;
-		twp->scl.x += 0.8f;
-		twp->scl.z += 0.8f;
+		twp->counter.f += 1.0f / RingInfo.eff.frame;
 	}
 
 	if (!loop_count)
@@ -18,23 +16,15 @@ void RingDone(taskwk* twp)
 		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
 		njSetTexture(&RingInfo.eff.texlist);
 
-		float n[3];
-		n[0] = twp->counter.f;
-		n[1] = twp->scl.x;
-		n[2] = twp->scl.z;
-
-		for (Uint8 i = 0; i < 3; i++)
+		if (twp->counter.f < texcount && twp->counter.f >= 0)
 		{
-			if (n[i] < texcount && n[i] >= 0)
-			{
-				njPushMatrix(0);
-				njTranslate(0, twp->pos.x - i + i, twp->pos.y - (n[i] * 0.05f) * 3.0f, twp->pos.z - i + i);
-				late_SetFunc(DrawEffectSpritePoint, (void*)(int)n[i], -100000.0f, (NJD_SPRITE_ALPHA | NJD_SPRITE_SCALE));
-				njPopMatrix(1);
-			}
+			njPushMatrix(0);
+			njTranslate(0, twp->pos.x, twp->pos.y, twp->pos.z);
+			late_SetFunc(DrawEffectSpritePoint, (void*)(int)twp->counter.f, -100000.0f, (NJD_SPRITE_ALPHA | NJD_SPRITE_SCALE));
+			njPopMatrix(1);
 		}
 
-		if (n[2] > texcount)
+		if (twp->counter.f > texcount)
 			twp->mode = 3;
 	}
 }
