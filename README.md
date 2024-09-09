@@ -35,7 +35,7 @@ ShadowScale=0.5
 [Effect]
 Size=16
 TextureCount=4
-FrameIncrement=4
+FrameIncrement=3
 SpriteScale=0.3
 ColorA=1.0
 ColorR=1.0
@@ -54,7 +54,7 @@ A  detailed break down of each group and its variables are as follows:
 |--|--|--|--|
 | Size 				| This is the texture size in pixels, ie 16x16, 32x32. These are expected to be square textures, so you only need to include one value indicating the size.														| 16		| Both 		|
 | TextureCount 		| This is the total number of textures being used in the sprite. Please make sure this is exactly the same are your textures otherwise your animation will display incorrectly, or potentially crash the game.	| 4			| Both 		|
-| FrameIncrement 	| This sets how quickly the sprites animate. 																																									| 6 or 4	| Both		|
+| FrameIncrement 	| This sets how quickly the sprites animate. 																																									| 6 or 3	| Both		|
 | SpriteScale 		| This sets the size the sprites will be rendered at. The scale is relatable to the texture size. 0.3 works well for 16x16 sprites, 0.15 works well for 32x32, etc.												| 0.3		| Both 		|
 | ColorA			| This float value that sets the alpha amount for the sprite. 																																					| 1.0		| Both		|
 | ColorR			| This float value sets the red color amount for the sprite. 																																					| 1.0		| Both		|

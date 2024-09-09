@@ -2,6 +2,8 @@
 
 UsercallFuncVoid(hCollectRingDisp, (taskwk* twp), (twp), 0x0044F7A0, rESI);
 
+// Credit to MainMemory for building the below code.
+
 void RingDone(taskwk* twp)
 {
 	if (!ChkPause())

@@ -22,7 +22,7 @@ public:
 
 		tex_total = file->getInt(header, "TextureCount", 4);
 		if (useAltFrameDefault)
-			frame = file->getInt(header, "FrameIncrement", 4);
+			frame = file->getInt(header, "FrameIncrement", 3);
 		else
 			frame = file->getInt(header, "FrameIncrement", 6);
 
