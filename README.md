@@ -5,6 +5,8 @@ This mod replaces the rings in SADX with animated sprites. They're customizable 
 
 It comes with several custom options built into the mod that can be used via the mod's configuration options. Users can also select the rendering method for the sprites, options exist for Point Filtering (default) and Linear Filtering. Users can also toggle if the ring's render with a shadow or not.
 
+Thanks to [MainMemory](https://github.com/MainMemory) for modifying the Effect Rendering to allow for users to set the speed of the effect.
+
 Please check [here](#sub-mod-development) for information on creating sub mods.
 
 If you're playing this mod with any sub mods installed, please be aware the **sub mods (and any of their config options) will take priority over all configurations.**
@@ -33,6 +35,7 @@ ShadowScale=0.5
 [Effect]
 Size=16
 TextureCount=4
+FrameIncrement=4
 SpriteScale=0.3
 ColorA=1.0
 ColorR=1.0
@@ -49,18 +52,19 @@ A  detailed break down of each group and its variables are as follows:
 ---
 | Variable | Description | Default Value | Object / Effect |
 |--|--|--|--|
-| Size 				| This is the texture size in pixels, ie 16x16, 32x32. These are expected to be square textures, so you only need to include one value indicating the size.																						| 16	| Both 		|
-| TextureCount 		| This is the total number of textures being used in the sprite. Please make sure this is exactly the same are your textures otherwise your animation will display incorrectly, or potentially crash the game.									| 4		| Both 		|
-| FrameIncrement 	| This sets how quickly the sprites animate. The full process is `(FrameCounterUnpaused / FrameIncrement) % TextureCount` which allows it to only increment when the game is not paused and stay within the boundaries of the total textures.	| 6		| Object	|
-| SpriteScale 		| This sets the size the sprites will be rendered at. The scale is relatable to the texture size. 0.3 works well for 16x16 sprites, 0.15 works well for 32x32, etc.																				| 0.3	| Both 		|
-| ColorA			| This float value that sets the alpha amount for the sprite. 	| 1.0 | Both |
-| ColorR			| This float value sets the red color amount for the sprite. 	| 1.0 | Both |
-| ColorG			| This float value sets the green color amount for the sprite. 	| 1.0 | Both |
-| ColorB			| This float value sets the blue color amount for the sprite. 	| 1.0 | Both |
-| ShadowScale		| This float value sets the scale of ring's shadow. 			| 0.5 | Object |
+| Size 				| This is the texture size in pixels, ie 16x16, 32x32. These are expected to be square textures, so you only need to include one value indicating the size.														| 16		| Both 		|
+| TextureCount 		| This is the total number of textures being used in the sprite. Please make sure this is exactly the same are your textures otherwise your animation will display incorrectly, or potentially crash the game.	| 4			| Both 		|
+| FrameIncrement 	| This sets how quickly the sprites animate. 																																									| 6 or 4	| Both		|
+| SpriteScale 		| This sets the size the sprites will be rendered at. The scale is relatable to the texture size. 0.3 works well for 16x16 sprites, 0.15 works well for 32x32, etc.												| 0.3		| Both 		|
+| ColorA			| This float value that sets the alpha amount for the sprite. 																																					| 1.0		| Both		|
+| ColorR			| This float value sets the red color amount for the sprite. 																																					| 1.0		| Both		|
+| ColorG			| This float value sets the green color amount for the sprite. 																																					| 1.0		| Both		|
+| ColorB			| This float value sets the blue color amount for the sprite. 																																					| 1.0		| Both		|
+| ShadowScale		| This float value sets the scale of ring's shadow. 																																							| 0.5		| Object	|
 
 **Note 1: Variables with Both work for both elements, any that specify being on one or the other only have an applicable effect to that element.**\
 **Note 2: The Texture Count, as stated, must match to render correctly. If you have less textures than the count, it will crash. If you have more than the count, it will not display properly.**
+**Note 3: The full process for Object Sprites is `(FrameCounterUnpaused / FrameIncrement) % TextureCount` which keeps it within the boundaries of the texture count. The Effect frame formula is `1.0f / FrameIncrement` inside of a check for if the game is paused.**
 
 ### Additional Configurations
 Just like this mod does, you can also include multiple configuration options in your sub mod. Please refer to the [Codeless Config](https://github.com/X-Hax/SADXModdingGuide/wiki/Setting-up-a-Mod-Config-File#codeless-configuration) setup for the Mod Manager.
