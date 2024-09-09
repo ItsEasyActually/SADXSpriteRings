@@ -15,13 +15,17 @@ public:
 	NJS_TEXLIST texlist;
 	NJS_SPRITE sprite;
 
-	void LoadInfo(std::shared_ptr<IniFile> file, std::string header, std::string texbasename)
+	void LoadInfo(std::shared_ptr<IniFile> file, std::string header, std::string texbasename, bool useAltFrameDefault = false)
 	{
 		Sint16 sprite_size = file->getInt(header, "Size", 16);
 		Sint16 spite_center = (sprite_size / 2);
 
 		tex_total = file->getInt(header, "TextureCount", 4);
-		frame = file->getInt(header, "FrameIncrement", 6);
+		if (useAltFrameDefault)
+			frame = file->getInt(header, "FrameIncrement", 4);
+		else
+			frame = file->getInt(header, "FrameIncrement", 6);
+
 		scale = file->getFloat(header, "SpriteScale", 0.3f);
 
 		color = { file->getFloat(header, "ColorA", 1.0f), file->getFloat(header, "ColorR", 1.0f), file->getFloat(header, "ColorG", 1.0f), file->getFloat(header, "ColorB", 1.0f) };
@@ -51,7 +55,7 @@ public:
 	void LoadInfoFile(std::shared_ptr<IniFile> info)
 	{
 		obj.LoadInfo(info, "Object", "ring");
-		eff.LoadInfo(info, "Effect", "eff_ring");
+		eff.LoadInfo(info, "Effect", "eff_ring", true);
 	}
 };
 
